@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import youtubeApiSearch from "youtube-api-search";
-import 'bootstrap/dist/css/bootstrap.css';
+import "bootstrap/dist/css/bootstrap.css";
 
 import SearchBar from "./components/SearchBar";
+import VideoList from "./components/VideoList";
 
 const YOUTUBE_API_KEY = process.env.REACT_APP_YOUTUBE_API_KEY;
 
@@ -23,7 +24,13 @@ const App = () => {
   console.log(videos);
 
   return (
-    <SearchBar searchString={searchString} setSearchString={setSearchString} />
+    <div>
+      <SearchBar
+        searchString={searchString}
+        setSearchString={setSearchString}
+      />
+      <VideoList videos={videos} />
+    </div>
   );
 };
 
