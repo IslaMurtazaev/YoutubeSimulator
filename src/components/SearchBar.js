@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 
-const SearchBar = () => {
-  const [ searchString, setSearchString ] = useState("");
+const SearchBar = props => {
+  const { searchString, setSearchString } = props;
 
   const handleSearchStringChange = e => {
     setSearchString(e.target.value);
