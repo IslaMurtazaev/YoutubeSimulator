@@ -1,9 +1,7 @@
 import React from "react";
 import VideoListItem from "./VideoListItem";
 
-const VideoList = props => {
-  const { videos, activeVideo, setActiveVideo } = props;
-
+const VideoList = ({ videos, activeVideo, setActiveVideo }) => {
   return (
     <ul className="col-md-4 list-group video-list">
       {videos &&

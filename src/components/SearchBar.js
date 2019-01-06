@@ -1,8 +1,6 @@
 import React from "react";
 
-const SearchBar = props => {
-  const { searchString, setSearchString } = props;
-
+const SearchBar = ({ searchString, setSearchString }) => {
   const handleSearchStringChange = e => {
     setSearchString(e.target.value);
   };

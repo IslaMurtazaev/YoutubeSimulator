@@ -1,9 +1,7 @@
 import React from "react";
 import Spinner from "./Spinner";
 
-const VideoPlayer = props => {
-  const { snippet, id } = props;
-
+const VideoPlayer = ({ snippet, id }) => {
   return snippet && id ? (
     <div className="video-detail col-md-8">
       <div className="embed-responsive embed-responsive-16by9">

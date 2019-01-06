@@ -1,7 +1,6 @@
 import React from "react";
 
-const VideoListItem = props => {
-  const { video, activeVideo, setActiveVideo } = props;
+const VideoListItem = ({ video, activeVideo, setActiveVideo }) => {
   const active = video.etag === activeVideo.etag ? "active" : "";
 
   return (
