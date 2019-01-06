@@ -1,18 +1,22 @@
 import React from "react";
 
 const VideoListItem = props => {
-  const { title, description, thumbnails } = props;
+  const { video, activeVideo, setActiveVideo } = props;
+  const active = video.etag === activeVideo.etag ? "active" : "";
 
   return (
-    <li className="list-group-item">
-        <div className="video-list media">
-            <div className="media-left">
-                <img className="media-object" src={thumbnails.default.url} alt="video"/>
-            </div>
-            <div className="media-body">
-                <div className="media-heading">{title}</div>
-            </div>
+    <li
+      className={`list-group-item ${active}`}
+      onClick={() => setActiveVideo(video)}
+    >
+      <div className="video-list row">
+        <div className="col-lg-4 col-md-12">
+          <img src={video.snippet.thumbnails.default.url} alt="video" />
         </div>
+        <div className="col-lg-8 col-md-12">
+          <div>{video.snippet.title}</div>
+        </div>
+      </div>
     </li>
   );
 };

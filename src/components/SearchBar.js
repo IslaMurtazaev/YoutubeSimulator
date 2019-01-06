@@ -8,13 +8,15 @@ const SearchBar = props => {
   };
 
   return (
-    <div>
-      Searching for {searchString}
-      <input
-        type="text"
-        value={searchString}
-        onChange={handleSearchStringChange}
-      />
+    <div className="col-md-12 mx-auto">
+      <label>
+        Search&nbsp;
+        <input
+          type="text"
+          value={searchString}
+          onChange={handleSearchStringChange}
+        />
+      </label>
     </div>
   );
 };

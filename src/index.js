@@ -5,12 +5,14 @@ import "bootstrap/dist/css/bootstrap.css";
 
 import SearchBar from "./components/SearchBar";
 import VideoList from "./components/VideoList";
+import VideoPlayer from "./components/VideoPlayer";
 
 const YOUTUBE_API_KEY = process.env.REACT_APP_YOUTUBE_API_KEY;
 
 const App = () => {
   const [videos, setVideos] = useState([]);
   const [searchString, setSearchString] = useState("");
+  const [activeVideo, setActiveVideo] = useState({});
 
   useEffect(
     () => {
@@ -21,15 +23,16 @@ const App = () => {
     [searchString]
   );
 
-  console.log(videos);
-
   return (
-    <div>
-      <SearchBar
-        searchString={searchString}
-        setSearchString={setSearchString}
-      />
-      <VideoList videos={videos} />
+    <div className="container-fluid">
+      <div className="row">
+        <SearchBar
+          searchString={searchString}
+          setSearchString={setSearchString}
+        />
+        <VideoPlayer {...activeVideo} />
+        <VideoList videos={videos} activeVideo={activeVideo} setActiveVideo={setActiveVideo} />
+      </div>
     </div>
   );
 };
