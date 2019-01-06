@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import youtubeApiSearch from "youtube-api-search";
 import "bootstrap/dist/css/bootstrap.css";
+import { useDebounce } from 'use-debounce';
 
 import SearchBar from "./components/SearchBar";
 import VideoList from "./components/VideoList";
@@ -13,6 +14,7 @@ const App = () => {
   const [videos, setVideos] = useState([]);
   const [searchString, setSearchString] = useState("");
   const [activeVideo, setActiveVideo] = useState({});
+  const debouncedSearchString = useDebounce(searchString, 300);
 
   useEffect(
     () => {
@@ -20,7 +22,7 @@ const App = () => {
         setVideos(data);
       });
     },
-    [searchString]
+    [debouncedSearchString]
   );
 
   return (
